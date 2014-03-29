@@ -33,7 +33,7 @@ int main(int argc,char *argv[])
 	    myid, numprocs, processor_name);
     fflush(stdout);
 
-    n = 1000000;			/* default # of rectangles */
+    n = 100000000;			/* default # of rectangles */
     if (myid == 0)
 	startwtime = MPI_Wtime();
 
