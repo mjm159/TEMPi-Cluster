@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
   MPI_Comm_size (MPI_COMM_WORLD, &size);
 
   double pi;
-  calcPi(numTerms*rank/size, numTerms*(rank+1)/size, pi);
+  calcPi((numTerms*rank/size), (numTerms*(rank+1)/size), pi);
 
   // Send all of the partial results to processor 0
   if (rank == 0) {
@@ -38,6 +38,7 @@ int main(int argc, char **argv) {
   else {
     MPI_Send(&pi, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
   }
-
+  
   MPI_Finalize();
+ return 0;
 }
